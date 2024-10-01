@@ -7,7 +7,7 @@ const unescape = exports.unescape = function unescape (str) {
 }
 
 exports.parse = function parse (str, sep = '&', eq = '=') {
-  const obj = {}
+  const obj = Object.create(null)
 
   for (const tmp of str.split(sep)) {
     if (tmp === '') continue
@@ -26,13 +26,14 @@ exports.parse = function parse (str, sep = '&', eq = '=') {
 }
 
 exports.stringify = function stringify (obj, sep = '&', eq = '=') {
-  const entries = Object.entries(obj)
-
-  return entries.map(([key, value]) => {
-    const joinKeyValue = (value) => escape(key) + eq + escape(value)
-
-    return Array.isArray(value) ? value.map(joinKeyValue).join(sep) : joinKeyValue(value)
-  }).join(sep)
+  return Object
+    .entries(obj)
+    .map(([key, value]) =>
+      (Array.isArray(value) ? value : [value])
+        .map((value) => escape(key) + eq + escape(value))
+        .join(sep)
+    )
+    .join(sep)
 }
 
 exports.decode = exports.parse

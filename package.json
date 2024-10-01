@@ -22,7 +22,6 @@
     "url": "https://github.com/holepunchto/bare-querystring/issues"
   },
   "homepage": "https://github.com/holepunchto/bare-querystring#readme",
-  "dependencies": {},
   "devDependencies": {
     "brittle": "^3.7.0",
     "standard": "^17.0.0"
