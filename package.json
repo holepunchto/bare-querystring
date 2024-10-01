@@ -1,6 +1,6 @@
 {
   "name": "bare-querystring",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "URL query strings utilities",
   "exports": {
     ".": "./index.js",
