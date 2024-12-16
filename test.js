@@ -23,6 +23,6 @@ test('encode', (t) => {
   t.is(qs.encode({ foo: '€' }), 'foo=%E2%82%AC')
 })
 
-function o (obj) {
+function o(obj) {
   return Object.assign(Object.create(null), obj)
 }
